@@ -1,0 +1,25 @@
+{{#if route}}
+
+    {{#if isModelRoute}}
+        {{#link-to route model._id}}
+            {{partial "eureka-mixin-actionable-widget-action-label"}}
+        {{/link-to}}
+    {{else}}
+        {{#link-to route}}
+            {{partial "eureka-mixin-actionable-widget-action-label"}}
+        {{/link-to}}
+    {{/if}}
+
+{{else}}
+
+    {{#if isToggleAction}}
+        <a {{action 'toggle'}}>
+            {{partial "eureka-mixin-actionable-widget-action-label"}}
+        </a>
+    {{else}}
+        <a {{action "actionTriggered" name}}>
+            {{partial "eureka-mixin-actionable-widget-action-label"}}
+        </a>
+    {{/if}}
+
+{{/if}}
