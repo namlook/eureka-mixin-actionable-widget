@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'eureka-mixin-widget-actionable'
+  name: 'eureka-mixin-actionable-widget'
 };

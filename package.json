@@ -1,5 +1,5 @@
 {
-  "name": "eureka-mixin-widget-actionable",
+  "name": "eureka-mixin-actionable-widget",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
