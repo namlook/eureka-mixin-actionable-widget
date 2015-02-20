@@ -1,7 +1,7 @@
 {
   "name": "eureka-mixin-actionable-widget",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Mixin that brings action awareness to Eureka's widgets",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -35,7 +35,8 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "eureka-mixin"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
