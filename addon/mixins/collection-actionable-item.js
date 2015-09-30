@@ -9,16 +9,16 @@ export default Ember.Mixin.create(ActionableItemMixin, {
      * If the action is a toggle action, then the label to display
      * is the label of the current state
      */
-    label: function() {
+    label: Ember.computed('actionConfig.label', 'name', function() {
         return this.get('actionConfig.label') || this.get('name');
-    }.property('actionConfig.label', 'name'),
+    }),
 
 
     /** return true if the route is equal to `currentRouteName`
      */
-    isCurrentRoute: function() {
+    isCurrentRoute: Ember.computed('currentRouteName', 'route', function() {
         return this.get('currentRouteName') === this.get('route');
-    }.property('currentRouteName', 'route'),
+    }),
 
 
     actions: {

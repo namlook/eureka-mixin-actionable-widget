@@ -11,7 +11,7 @@ export default Ember.Mixin.create(ActionableItemMixin, {
     }.on('init'),
 
 
-    iconCssClass: function() {
+    iconCssClass: Ember.computed('actionConfig.icon', 'isToggleAction', 'currentToggleState', function() {
         var icon;
 
         if (this.get('isToggleAction')) {
@@ -22,14 +22,14 @@ export default Ember.Mixin.create(ActionableItemMixin, {
         }
 
         return icon;
-    }.property('actionConfig.icon', 'isToggleAction', 'currentToggleState'),
+    }),
 
 
     /** the label of the action to display
      * If the action is a toggle action, then the label to display
      * is the label of the current state
      */
-    label: function() {
+    label: Ember.computed('actionConfig.label', 'name', 'isToggleAction', 'currentToggleState', function() {
         var _label;
 
         // if the action is a toggle action, we use the label
@@ -43,7 +43,7 @@ export default Ember.Mixin.create(ActionableItemMixin, {
         }
 
         return _label;
-    }.property('actionConfig.label', 'name', 'isToggleAction', 'currentToggleState'),
+    }),
 
 
     /** true if the action is a toggle action
@@ -53,10 +53,10 @@ export default Ember.Mixin.create(ActionableItemMixin, {
 
     /** return the current state of the action
      */
-    currentToggleState: function() {
+    currentToggleState: Ember.computed('action.field', 'model._hasChanged', function() {
         var fieldName = this.get('actionConfig.field');
         return this.get('model.'+fieldName);
-    }.property('action.field', 'model._hasChanged'),
+    }),
 
 
     /** toggle beetween the differents states of the action

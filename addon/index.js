@@ -16,7 +16,7 @@ export default Ember.Mixin.create({
 
     hasActions: Ember.computed.or('hasPrimaryActions', 'hasSecondaryActions'),
 
-    activeSecondaryActionLabel: function() {
+    activeSecondaryActionLabel: Ember.computed('currentRouteName', 'secondaryActions.[]', function() {
         var currentRouteName = this.get('currentRouteName');
         var secondaryActions = Ember.A(this.get('secondaryActions'));
         var activeAction;
@@ -28,7 +28,7 @@ export default Ember.Mixin.create({
         if (activeAction) {
             return getActionLabel(activeAction);
         }
-    }.property('currentRouteName', 'secondaryActions.[]'),
+    }),
 
     actions: {
         // forwards the actions to the parent component (until the controller)

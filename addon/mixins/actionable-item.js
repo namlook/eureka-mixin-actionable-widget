@@ -26,7 +26,7 @@ export default Ember.Mixin.create({
     /** the name of the action. If no name is passed to the action config
      * and the action is a route, then the name is the route.
      */
-    name: function() {
+    name: Ember.computed('route', 'actionConfig.name', function() {
         var route = this.get('route');
         var name = this.get('actionConfig.name');
         if (!name) {
@@ -37,14 +37,14 @@ export default Ember.Mixin.create({
             }
         }
         return name;
-    }.property('route', 'actionConfig.name'),
+    }),
 
 
     /** return true if the route is equal to `currentRouteName`
      */
-    isCurrentRoute: function() {
+    isCurrentRoute: Ember.computed('currentRouteName', 'route', function() {
         return this.get('currentRouteName') === this.get('route');
-    }.property('currentRouteName', 'route'),
+    }),
 
 
 });
