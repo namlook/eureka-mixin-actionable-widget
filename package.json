@@ -1,6 +1,6 @@
 {
   "name": "eureka-mixin-actionable-widget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mixin that brings action awareness to Eureka's widgets",
   "directories": {
     "doc": "doc",
