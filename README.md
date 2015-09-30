@@ -6,17 +6,30 @@ Mixin that brings action awareness to Eureka's widgets. Usage:
         widgets: [
             {
                 type: <actionable-widget>,
-                actions: [ // the main actions
-                    { // regular action (you will have to implement the action into the controller)
-                        name: 'simpleAction', // the name of the triggered action
+
+                // the primary (main) actions
+                actions: [
+
+                    // regular action (you will have to implement the action into the controller)
+                    {
+                        // the name of the triggered action (implemented into the controller)
+                        name: 'simpleAction',
+
+                        // the label to display
                         label: 'simple action',
-                        icon: 'glyphicon glyphicon-pencil' // icon css classes
+
+                        // icon css classes
+                        icon: 'glyphicon glyphicon-pencil'
                     },
-                    { // route transition action
-                        name: 'edit',
+
+                    // route transition action
+                    {
+                        label: 'edit',
                         route: 'eureka.user.model.edit' // the full ember route
                     },
-                    { // toggle action (only for `WidgetModel`s)
+
+                    // toggle action (only for `WidgetModel`s)
+                    {
                         name: 'toggleFavorite',
                         field: 'isFavorite',
                         toggle: {
@@ -36,6 +49,8 @@ Mixin that brings action awareness to Eureka's widgets. Usage:
                         }
                     }
                 ],
+
+                // secondary actions (displayed in a dropdown menu)
                 secondaryActions: [
                     ... // same as main actions
                     {divider: true} // add a divider to the dropdown menu
